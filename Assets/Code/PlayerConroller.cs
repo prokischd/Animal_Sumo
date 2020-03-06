@@ -27,7 +27,10 @@ public class PlayerConroller : MonoBehaviour
 		HandleMovement();
 		HandleRayCast();
 	}
-
+	public float GetCurrentHorizontalForce()
+	{
+		return currentHorizontalForce;
+	}
 	private void HandleRayCast()
 	{
 		Vector2 startPos = rbBody.transform.position;
