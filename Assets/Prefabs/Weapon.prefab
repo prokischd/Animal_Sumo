@@ -97,8 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8786345793763259263, guid: e0ae448829e6b8c489fc910c936449dc,
     type: 3}
+  parentRb: {fileID: 0}
   weaponForce: 30
-  defaultTimer: 1
+  defaultTimer: 0.5
 --- !u!61 &535552231024525930
 BoxCollider2D:
   m_ObjectHideFlags: 0
