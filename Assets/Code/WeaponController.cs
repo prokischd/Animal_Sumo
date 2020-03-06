@@ -13,7 +13,8 @@ public class WeaponController : MonoBehaviour
 		{
 			weapon.transform.parent = weaponSpot.transform;
 			weapon.transform.localPosition = Vector3.zero;
-			weapons.Add(weapon);
+			weapon.parentRb = weaponSpot.GetComponent<Rigidbody2D>();
+			weapons.Add(weapon);			
 		}
 	}
 
@@ -24,7 +25,7 @@ public class WeaponController : MonoBehaviour
 		{
 			if(wep.CanExecute())
 			{
-
+				wep.Execute();
 			}
 		}
 	}
