@@ -30,10 +30,10 @@ public class PlayerConroller : MonoBehaviour
 
 	private void HandleRayCast()
 	{
-		var startPos = rbBody.position;
+		Vector2 startPos = rbBody.transform.position;
 		var dir = Vector2.down;
 		RaycastHit2D hit = Physics2D.Raycast(startPos, dir, floorHitDistance, groundLayerMask);
-		Debug.DrawLine(startPos, (startPos + dir) * floorHitDistance, Color.red);
+		Debug.DrawRay(startPos, dir * floorHitDistance, Color.red);
 		if(hit.collider != null)
 		{
 			Debug.Log("GROUNDED");
