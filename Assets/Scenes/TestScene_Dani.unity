@@ -1138,7 +1138,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -1803,9 +1803,19 @@ MonoBehaviour:
   rbBody: {fileID: 1807533145}
   inputHorizontal: Player1Horizontal
   inputVertical: Player1Vertical
-  force: 1000
-  maxVelocity: 5000
-  minVelocity: -5000
+  horizontalForce: 400
+  verticalForce: 2000
+  maxVelocity: 10
+  impulseMultiplier: 5
+  currentHorizontalForce: 0
+  currentVerticalForce: 0
+  crashMultiplier: 5
+  floorHitDistance: 3.84
+  hitDir: {x: 0, y: 1}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  isGrounded: 1
 --- !u!1 &945734464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,7 +2196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1074248212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2460,13 +2470,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615945768}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.99991125, w: 0.013327456}
+  m_LocalPosition: {x: -1.18, y: -10.55, z: 0}
+  m_LocalScale: {x: 2.8716795, y: 1.7032, z: 1}
   m_Children: []
   m_Father: {fileID: 1074248212}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 178.473}
 --- !u!60 &1615945770
 PolygonCollider2D:
   m_ObjectHideFlags: 0
