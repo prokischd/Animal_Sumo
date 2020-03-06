@@ -25,7 +25,7 @@ public class WeaponController : MonoBehaviour
 		if(collision.gameObject.GetComponent<Weapon>() is Weapon weapon)
 		{
 			var slot = GetFreeWeaponSlot();
-			if(slot != null)
+			if(slot != null && weapon.parentRb == null)
 			{
 				weapon.transform.parent = slot.go.transform;
 				weapon.transform.localPosition = Vector3.zero;
