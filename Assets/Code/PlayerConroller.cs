@@ -37,7 +37,7 @@ public class PlayerConroller : MonoBehaviour
 	public bool crashing;
 	private float explosionForce = 50;
 
-	public float deathPosition = -15;
+	public float deathPosition = -40;
 	private CharacterSpawner cSpawner;
 	public int HP { get; set; } = 5;
 
