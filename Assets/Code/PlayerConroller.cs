@@ -22,6 +22,7 @@ public class PlayerConroller : MonoBehaviour
 
 	public bool isGrounded = true;
 
+
 	void Update()
     {
 		HandleMovement();
@@ -31,6 +32,23 @@ public class PlayerConroller : MonoBehaviour
 	{
 		return currentHorizontalForce;
 	}
+
+	public void MultiplyScale(float multiplier)
+	{
+		/*
+		foreach(Transform child in transform)
+		{
+			child.localScale *= multiplier;
+		}
+		*/
+		rbBody.transform.localScale *= multiplier;
+	}
+
+	public float GetBodyScale()
+	{
+		return rbBody.transform.localScale.x;
+	}
+
 	private void HandleRayCast()
 	{
 		Vector2 startPos = rbBody.transform.position;

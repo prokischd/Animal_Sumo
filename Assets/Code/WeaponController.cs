@@ -12,8 +12,8 @@ public class WeaponController : MonoBehaviour
 
 	private void Start()
 	{
-		var child1 = gameObject.transform.parent.Find("Arm_R").GetChild(3).gameObject;
-		var child2 = gameObject.transform.parent.Find("Arm_L").GetChild(3).gameObject;
+		var child1 = gameObject.transform.Find("Arm_R").GetChild(3).gameObject;
+		var child2 = gameObject.transform.Find("Arm_L").GetChild(3).gameObject;
 		publicSpots.Add(child1);
 		publicSpots.Add(child2);
 		foreach(var spot in publicSpots)
