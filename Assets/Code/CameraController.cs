@@ -49,23 +49,17 @@ public class CameraController : MonoBehaviour
 	private void Move()
 	{
 		Vector3 centerPoint = GetCenterPoint();
+		Debug.DrawLine(Vector3.zero, centerPoint);
 		Vector3 newPosition = centerPoint + offset;
 		transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref currentVelocity, smoothTime);
 	}
 	private Vector3 GetCenterPoint()
 	{
-		if(targets.Count == 1)
+		Vector3 center = Vector3.zero;
+		for(int i = 0; i < targets.Count; i++)
 		{
-			return targets[0].position;
+			center += targets[i].position;		
 		}
-		else
-		{
-			var bounds = new Bounds(targets[0].position, Vector3.zero);
-			foreach(var t in targets)
-			{
-				bounds.Encapsulate(t.position);
-			}
-			return bounds.center;
-		}
+		return center / targets.Count;
 	}
 }
