@@ -41,6 +41,14 @@ public class WeaponController : MonoBehaviour
 				slot.taken = true;
 			}			
 		}
+		else if(collision.gameObject.GetComponent<Consumable>() is Consumable consumable)
+		{
+			if(consumable.CanAffect())
+			{
+				consumable.Affect(pc);
+			}
+			
+		}
 	}
 
 	private WeaponSlot GetFreeWeaponSlot()
