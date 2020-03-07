@@ -23,7 +23,12 @@ public class Weapon : MonoBehaviour
 		return timer <= 0.0f && parentRb != null;
 	}
 
-	public virtual void Execute(float v)
+	public virtual void Execute(float v, Transform target)
 	{
+	}
+
+	internal void RotateTowards(Transform enemyTransform)
+	{
+		Quaternion.RotateTowards(this.transform.rotation, enemyTransform.rotation, 10.0f);
 	}
 }

@@ -35,7 +35,7 @@ public class WeaponController : MonoBehaviour
 			{
 				weapon.transform.parent = slot.go.transform;
 				weapon.transform.localPosition = Vector3.zero;
-				weapon.transform.localRotation = slot.go.transform.localRotation;
+				weapon.transform.rotation = slot.go.transform.rotation;
 				weapon.parentRb = slot.go.GetComponent<Rigidbody2D>();
 				slot.weapon = weapon;
 				slot.taken = true;
@@ -60,9 +60,17 @@ public class WeaponController : MonoBehaviour
 	{
 		foreach(var spot in weaponSpots)
 		{
+			if(spot.HasWeapon())
+			{
+				spot.weapon.RotateTowards(pc.GetRandomEnemyTransform());
+			}
+		}
+
+		foreach(var spot in weaponSpots)
+		{
 			if(spot.HasWeapon() && spot.weapon.CanExecute())
 			{
-				spot.weapon.Execute(pc.GetCurrentHorizontalForce());
+				spot.weapon.Execute(pc.GetCurrentHorizontalForce(), pc.GetRandomEnemyTransform());
 			}
 		}
 	}

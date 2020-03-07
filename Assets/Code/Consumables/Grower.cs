@@ -6,7 +6,7 @@ using UnityEngine;
 public class Grower : Consumable
 {
 	public float growMultiplier = 1.03f;
-	public float maxScale = 5.5f;
+	public float maxScale = 2.2f;
 	public float cooldown = 6.0f;
 	public override void Affect(PlayerConroller pc)
 	{
@@ -18,6 +18,7 @@ public class Grower : Consumable
 		while(pc.GetBodyScale() < maxScale)
 		{
 			pc.MultiplyScale(growMultiplier);
+			pc.MultiplyLines(growMultiplier);
 			yield return null;
 		}
 
@@ -26,6 +27,7 @@ public class Grower : Consumable
 		while(pc.GetBodyScale() > 1)
 		{
 			pc.MultiplyScale(1 / growMultiplier);
+			pc.MultiplyLines(1 / growMultiplier);
 			yield return null;
 		}
 		canAffect = true;

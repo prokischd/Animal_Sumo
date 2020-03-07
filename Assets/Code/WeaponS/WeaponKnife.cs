@@ -15,7 +15,7 @@ public class WeaponKnife : Weapon
 		timer -= Time.deltaTime;
 	}
 
-	public override void Execute(float v)
+	public override void Execute(float v, Transform target)
 	{
 		timer = defaultTimer;
 		rb.AddForce(-weaponForce * transform.up, ForceMode2D.Impulse);

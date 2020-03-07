@@ -37,10 +37,11 @@ public class ProjectileScript : MonoBehaviour
             
             for (int i = 0; i < pushCol.Length; i++)
             {
-                if (pushCol[i].GetComponent<Rigidbody2D>() != null)
+				var rb = pushCol[i].GetComponent<Rigidbody2D>();
+				if (rb != null)
                 {
                     Debug.Log(pushCol[i]);
-                    pushCol[i].GetComponent<Rigidbody2D>().AddExplosionForce(explosionForce, col.contacts[0].point, explosionRadious);
+					rb.AddExplosionForce(explosionForce, col.contacts[0].point, explosionRadious);
                 }
             }
             if (explosion != null)
