@@ -29,7 +29,10 @@ public class CameraController : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		cSpawner.OnTargetRevived -= OnTargetRevived;
+		if(cSpawner != null)
+		{
+			cSpawner.OnTargetRevived -= OnTargetRevived;
+		}
 	}
 
 	private void OnTargetRevived(Transform obj)

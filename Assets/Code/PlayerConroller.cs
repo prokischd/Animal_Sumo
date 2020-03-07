@@ -41,7 +41,7 @@ public class PlayerConroller : MonoBehaviour
 	public bool isGrounded = true;
 	public bool crashing;
 	private float explosionForce = 50;
-	private void Start()
+	private void Awake()
 	{
 		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
 		child1 = rbBody.transform.Find("Arm_R").GetChild(3).GetComponent<Rigidbody2D>();
