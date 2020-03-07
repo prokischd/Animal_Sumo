@@ -3434,7 +3434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputHorizontal: Player2Horizontal
   inputVertical: Player2Vertical
-  horizontalForce: 400
+  horizontalForce: 10000
   verticalForce: 2000
   jumpForceMultiplier: 1
   impulseMultiplier: 5

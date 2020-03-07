@@ -154,8 +154,14 @@ public class PlayerConroller : MonoBehaviour
 	{
 		float horizontal = Input.GetAxis(inputHorizontal);
 		float vertical = Input.GetAxis(inputVertical);
+
 		currentHorizontalForce = horizontal * Time.deltaTime * horizontalForce;
 		currentVerticalForce = vertical * Time.deltaTime * verticalForce;
+
+		if(Input.GetButtonDown(inputHorizontal))
+		{
+			AddForces(rbBody, ForceMode2D.Impulse);
+		}
 
 		if(!isGrounded && currentVerticalForce > 0)
 		{
@@ -181,7 +187,11 @@ public class PlayerConroller : MonoBehaviour
 		{
 			multiplier *= 100;
 		}
-		rb.AddForce(currentHorizontalForce * multiplier * Vector3.right, mode);
+		if(!crashing)
+		{
+			currentHorizontalForce *= 2;
+		}
+		rb.AddForce(currentHorizontalForce * multiplier * Vector3.right, ForceMode2D.Force);
 		rb.AddForce(currentVerticalForce * Vector3.up, mode);
 	}
 }
