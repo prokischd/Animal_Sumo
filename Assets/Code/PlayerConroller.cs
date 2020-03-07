@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour
 {
 	public Rigidbody2D rbHead;
 	public Rigidbody2D rbBody;
+	public Rigidbody2D child1;
+	public Rigidbody2D child2;
 	public string inputHorizontal;
 	public string inputVertical;
 
@@ -21,8 +24,11 @@ public class PlayerConroller : MonoBehaviour
 	public LayerMask groundLayerMask;
 
 	public bool isGrounded = true;
-
-
+	private void Start()
+	{
+		child1 = rbBody.transform.Find("Arm_R").GetChild(3).GetComponent<Rigidbody2D>();
+		child2 = rbBody.transform.Find("Arm_L").GetChild(3).GetComponent<Rigidbody2D>();
+	}
 	void Update()
     {
 		HandleMovement();
@@ -84,9 +90,15 @@ public class PlayerConroller : MonoBehaviour
 		{
 			currentVerticalForce = 0;
 		}
-		rbBody.AddForce(currentHorizontalForce * Vector3.right, ForceMode2D.Impulse);
-		rbBody.AddForce(currentVerticalForce * Vector3.up, ForceMode2D.Impulse);
+		AddForces(rbBody);
+		//AddForces(child1);
+		//AddForces(child2);
+	}
 
-		rbBody.velocity = Vector2.ClampMagnitude(rbBody.velocity, maxVelocity);
+	private void AddForces(Rigidbody2D rb)
+	{
+		rb.AddForce(currentHorizontalForce * Vector3.right, ForceMode2D.Impulse);
+		rb.AddForce(currentVerticalForce * Vector3.up, ForceMode2D.Impulse);
+		rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
 	}
 }

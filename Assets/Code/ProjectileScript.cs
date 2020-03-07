@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-
     private Rigidbody2D myBody;
     public float force = 50f;
     public LayerMask colMask;
@@ -13,11 +12,13 @@ public class ProjectileScript : MonoBehaviour
     private Collider2D[] pushCol;
     public float explosionForce = 100;
     public float explosionRadious=10;
+	public float deathTimer = 5.0f;
 
     void Start()
     {
         myBody = GetComponent < Rigidbody2D > ();
-    }
+		Destroy(this.gameObject, deathTimer);
+	}
 
     void Update()
     {
@@ -44,8 +45,10 @@ public class ProjectileScript : MonoBehaviour
             }
             if (explosion != null)
             {
-                Instantiate(explosion, col.contacts[0].point, Quaternion.identity);
-            }
+                var go = Instantiate(explosion, col.contacts[0].point, Quaternion.identity);
+				Destroy(go, deathTimer);
+				Destroy(this.gameObject, deathTimer);
+			}
         }
     }
 

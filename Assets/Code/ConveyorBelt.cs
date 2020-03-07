@@ -19,7 +19,7 @@ public class ConveyorBelt : MonoBehaviour
 		{
 			var rb = c.GetComponent<Rigidbody2D>();
 			rb.AddForce(transform.right * conveyorForce, ForceMode2D.Impulse);
-			rb.gravityScale = 0.0f;
+			rb.gravityScale = -0.3f;
 		}
 	}
 
