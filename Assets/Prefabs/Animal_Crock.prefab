@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1706553379738156114}
   - component: {fileID: 501203640949022181}
   - component: {fileID: 676839036886778607}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 6714482452591368719}
   - component: {fileID: 5070476365350694235}
   - component: {fileID: 6146343872753245901}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3086,7 +3086,7 @@ GameObject:
   - component: {fileID: 4189318561352480689}
   - component: {fileID: 4189318561352480694}
   - component: {fileID: 4189318561352480695}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3231,7 +3231,7 @@ GameObject:
   - component: {fileID: 4189318562286922240}
   - component: {fileID: 4189318562286922241}
   - component: {fileID: 4189318562286922246}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3377,7 +3377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4189318562320703084}
   - component: {fileID: 4189318562320703085}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Animal_Crock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3413,6 +3413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbHead: {fileID: 4189318562678321250}
   rbBody: {fileID: 4189318561144163899}
+  child1: {fileID: 0}
+  child2: {fileID: 0}
   inputHorizontal: Player1Horizontal
   inputVertical: Player1Vertical
   horizontalForce: 400
@@ -3421,12 +3423,14 @@ MonoBehaviour:
   impulseMultiplier: 5
   currentHorizontalForce: 0
   currentVerticalForce: 0
-  crashMultiplier: 5
+  crashMultiplier: 500
   floorHitDistance: 3.84
   hitDir: {x: 0, y: 1}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  enemies: []
+  lines: []
   isGrounded: 1
 --- !u!1 &4189318562382428395
 GameObject:
@@ -4051,7 +4055,7 @@ GameObject:
   - component: {fileID: 4189318562939818242}
   - component: {fileID: 4189318562939818243}
   - component: {fileID: 4189318562939818240}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
