@@ -22,11 +22,6 @@ public class PlayerConroller : MonoBehaviour
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
 
-	internal void MultiplyRayLine(float growMultiplier)
-	{
-		floorHitDistance *= growMultiplier;
-	}
-
 	public float crashMultiplier = 20.0f;
 	public float floorHitDistance = 1.0f;
 
@@ -41,8 +36,14 @@ public class PlayerConroller : MonoBehaviour
 	public bool isGrounded = true;
 	public bool crashing;
 	private float explosionForce = 50;
+
+	public float deathPosition = -15;
+	private CharacterSpawner cSpawner;
+	public int HP { get; set; } = 5;
+
 	private void Awake()
 	{
+		cSpawner = FindObjectOfType<CharacterSpawner>();
 		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
 		child1 = rbBody.transform.Find("Arm_R").GetChild(3).GetComponent<Rigidbody2D>();
 		child2 = rbBody.transform.Find("Arm_L").GetChild(3).GetComponent<Rigidbody2D>();
@@ -56,6 +57,11 @@ public class PlayerConroller : MonoBehaviour
 			}
 		}
 		crashForce = rbBody.GetComponent<CrashForce>();
+	}
+
+	internal void MultiplyRayLine(float growMultiplier)
+	{
+		floorHitDistance *= growMultiplier;
 	}
 
 	internal float GetExplosionForce()
@@ -87,6 +93,7 @@ public class PlayerConroller : MonoBehaviour
 		yield return this;
 	}
 
+	public bool alive = true;
 	void Update()
     {		
 		if(inputBlocked == 0)
@@ -94,6 +101,12 @@ public class PlayerConroller : MonoBehaviour
 			HandleMovement();
 			HandleRayCast();
 		}		
+		if(rbBody.transform.position.y < deathPosition && alive)
+		{
+			cSpawner.OnDeath?.Invoke(rbBody.transform);
+			alive = false;
+			HP--;
+		}
 	}
 
 	public float GetCurrentHorizontalForce()
@@ -157,11 +170,6 @@ public class PlayerConroller : MonoBehaviour
 
 		currentHorizontalForce = horizontal * Time.deltaTime * horizontalForce;
 		currentVerticalForce = vertical * Time.deltaTime * verticalForce;
-
-		if(Input.GetButtonDown(inputHorizontal))
-		{
-			AddForces(rbBody, ForceMode2D.Impulse);
-		}
 
 		if(!isGrounded && currentVerticalForce > 0)
 		{

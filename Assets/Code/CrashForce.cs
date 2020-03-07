@@ -35,7 +35,6 @@ public class CrashForce :MonoBehaviour
 				var cf = collidedWith.GetComponent<CrashForce>();
 				if(cf != null && cf != this)
 				{
-					Debug.Log("CRASHING ACTUALLY");
 					cf.canCrash = false;
 					StartCoroutine(cf.ResetCrashTimer(1.0f));
 					var rb = cf.gameObject.GetComponent<Rigidbody2D>();

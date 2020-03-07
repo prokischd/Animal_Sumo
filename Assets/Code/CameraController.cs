@@ -13,49 +13,56 @@ public class CameraController : MonoBehaviour
 	public float minZoom = 40;
 	public float maxZoom = 10;
 	public float zoomLimiter = 50;
-	public float deathPosition = -15;
+
 	private Vector3 currentVelocity;
 	private Camera cam;
 	private CharacterSpawner cSpawner;
+
+	private float bigSmoothTime = 0.5f;
+	private Transform mid;
 	private void Start()
 	{
+		mid = FindObjectOfType<CharacterSpawner>().transform;
 		cam = GetComponent<Camera>();
 		cSpawner = FindObjectOfType<CharacterSpawner>();
 		var playercontrollers = FindObjectsOfType<PlayerConroller>();
 		var rbBodies = playercontrollers.Select(x => x.rbBody.transform);
 		targets.AddRange(rbBodies);
+		cSpawner.OnTargetRevived -= OnTargetRevived;
+		cSpawner.OnDeath -= OnTargetDie;
 		cSpawner.OnTargetRevived += OnTargetRevived;
+		cSpawner.OnDeath += OnTargetDie;
 	}
 
 	private void OnDestroy()
 	{
-		if(cSpawner != null)
-		{
-			cSpawner.OnTargetRevived -= OnTargetRevived;
-		}
 	}
 
 	private void OnTargetRevived(Transform obj)
 	{
 		targets.Add(obj);
+		smoothTime = bigSmoothTime;		
+	}
+
+	private void OnTargetDie(Transform target)
+	{
+		targets.Remove(target);
+		cSpawner.ResetTarget(target);
+		smoothTime = bigSmoothTime;		
 	}
 
 	private void LateUpdate()
 	{
-		if(targets.Count == 0)
+		if(targets.Count != 0)
 		{
-			return;
+			Zoom();
 		}
 		Move();
-		Zoom();
-		RefreshTargets();
-	}
 
-	private void RefreshTargets()
-	{
-		var deadTargets = targets.Where(x => x.position.y < deathPosition).ToList();
-		targets.RemoveAll(x => x.position.y < deathPosition);
-		cSpawner.ResetTargets(deadTargets);
+		if(smoothTime > 0.02f)
+		{
+			smoothTime -= Time.deltaTime;
+		}
 	}
 
 	private void Zoom()
@@ -84,6 +91,10 @@ public class CameraController : MonoBehaviour
 	}
 	private Vector3 GetCenterPoint()
 	{
+		if(targets.Count == 0)
+		{
+			return mid.position;
+		}
 		Vector3 center = Vector3.zero;
 		for(int i = 0; i < targets.Count; i++)
 		{

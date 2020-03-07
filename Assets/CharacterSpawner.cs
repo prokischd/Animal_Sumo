@@ -6,19 +6,18 @@ using UnityEngine;
 public class CharacterSpawner :MonoBehaviour
 {
 	public Action<Transform> OnTargetRevived;
-	internal void ResetTargets(IEnumerable<Transform> deadTargets)
+	public Action<Transform> OnDeath;
+	internal void ResetTarget(Transform target)
 	{
-		StartCoroutine(ResetTargetsAfterTime(deadTargets, 3.0f));		
+		StartCoroutine(ResetTargetsAfterTime(target, 3.0f));		
 	}
 
-	private IEnumerator ResetTargetsAfterTime(IEnumerable<Transform> deadTargets, float v)
+	private IEnumerator ResetTargetsAfterTime(Transform target, float v)
 	{
 		yield return new WaitForSeconds(v);
-		foreach(var target in deadTargets)
-		{
-			target.position = this.transform.position;
-			target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-			OnTargetRevived?.Invoke(target);
-		}
+		target.position = this.transform.position;
+		target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		OnTargetRevived?.Invoke(target);
+		target.parent.GetComponent<PlayerConroller>().alive = true;
 	}
 }
