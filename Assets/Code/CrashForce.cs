@@ -16,31 +16,24 @@ public class CrashForce : MonoBehaviour
 	void Start()
 	{
 		playerController = transform.parent.GetComponent<PlayerConroller>();
+		colMask = colMask & ~(1 << playerController.gameObject.layer);
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	public void Crash(RaycastHit2D hit)
 	{
 		if(playerController.crashing)
 		{
 			playerController.crashing = false;
-			if((colMask.value & 1 << col.gameObject.layer) == 1 << col.gameObject.layer)
+			pushCol = Physics2D.OverlapCircleAll(hit.point, explosionRadious, colMask);
+			foreach(var collidedWith in pushCol)
 			{
-				pushCol = Physics2D.OverlapCircleAll(col.contacts[0].point, explosionRadious);
-
-				for(int i = 0; i < pushCol.Length; i++)
+				var rb = collidedWith.GetComponent<Rigidbody2D>();
+				if(rb != null)
 				{
-					var rb = pushCol[i].GetComponent<Rigidbody2D>();
-					if(rb != null)
-					{
-						Debug.Log(pushCol[i]);
-						rb.AddExplosionForce(playerController.GetExplosionForce(), col.contacts[0].point, explosionRadious);
-					}
+					rb.AddExplosionForce(playerController.GetExplosionForce(), hit.point, explosionRadious);					
 				}
-				if(explosion != null)
-				{
-					var go = Instantiate(explosion, col.contacts[0].point, Quaternion.identity);
-				}
-			}
+				Instantiate(explosion, hit.point, Quaternion.identity);
+			}		
 		}
 		playerController.crashBonus = 1.0f;
 	}

@@ -14,11 +14,18 @@ public class PlayerConroller : MonoBehaviour
 
 	public float horizontalForce;
 	public float verticalForce;
+	public float jumpForceMultiplier = 1.0f; 
 
 	public float maxVelocity = 5000;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
+
+	internal void MultiplyVerticalForce(float growMultiplier)
+	{
+		jumpForceMultiplier *= growMultiplier;
+	}
+
 	public float crashMultiplier = 20.0f;
 	public float floorHitDistance = 1.0f;
 
@@ -28,6 +35,7 @@ public class PlayerConroller : MonoBehaviour
 	public List<PlayerConroller> enemies = new List<PlayerConroller>();
 	public List<LineRenderer> lines = new List<LineRenderer>();
 	private System.Random rng = new System.Random();
+	private CrashForce crashForce;
 
 	public bool isGrounded = true;
 	public bool crashing;
@@ -47,6 +55,7 @@ public class PlayerConroller : MonoBehaviour
 				lines.Add(lr);
 			}
 		}
+		crashForce = rbBody.GetComponent<CrashForce>();
 	}
 
 	internal float GetExplosionForce()
@@ -65,6 +74,7 @@ public class PlayerConroller : MonoBehaviour
 		HandleMovement();
 		HandleRayCast();
 	}
+
 	public float GetCurrentHorizontalForce()
 	{
 		return currentHorizontalForce;
@@ -105,6 +115,7 @@ public class PlayerConroller : MonoBehaviour
 			dir = hit.point - new Vector2(transform.position.x, transform.position.y);
 			hitDir = dir.normalized;
 			isGrounded = true;
+			crashForce.Crash(hit);
 		}
 		else
 		{
@@ -127,9 +138,8 @@ public class PlayerConroller : MonoBehaviour
 		}
 		if(currentVerticalForce < 0 && !isGrounded)
 		{
-			Debug.Log("Crashing");
 			crashing = true;
-			crashBonus += Time.deltaTime;
+			crashBonus += 5 * Time.deltaTime;
 			currentVerticalForce *= crashMultiplier;
 			AddForces(rbBody, ForceMode2D.Force);
 		}
