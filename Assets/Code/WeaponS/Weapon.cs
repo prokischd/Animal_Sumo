@@ -10,26 +10,21 @@ public class Weapon : MonoBehaviour
 	public float weaponForce = 300; 
 	public float defaultTimer = 0.1f;
 	public float distance = 4;
-	private float timer;
-	private System.Random rng;
+	protected float timer;
+	protected System.Random rng;
 
-	private void Start()
+	void Start()
 	{
 		timer = defaultTimer;
 		rng = new System.Random();
 	}
 
-	private void Update()
-	{
-		timer -= Time.deltaTime;
-	}
-
-	internal bool CanExecute()
+	public virtual bool CanExecute()
 	{
 		return timer <= 0.0f && parentRb != null;
 	}
 
-	internal void Execute(float v)
+	public virtual void Execute(float v)
 	{
 		timer = defaultTimer;
 		//var go = Instantiate(projectile, this.transform.position, Quaternion.identity);

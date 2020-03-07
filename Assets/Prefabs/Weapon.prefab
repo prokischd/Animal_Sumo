@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 535552231024525927}
   - component: {fileID: 535552231024525924}
-  - component: {fileID: 535552231024525925}
   - component: {fileID: 535552231024525930}
+  - component: {fileID: -1501823853832859557}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -84,24 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &535552231024525925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535552231024525931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a972672bb6045b40b25ba9e177aed76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 8786345793763259263, guid: e0ae448829e6b8c489fc910c936449dc,
-    type: 3}
-  parentRb: {fileID: 0}
-  weaponForce: 30
-  defaultTimer: 0.5
-  distance: 4
 --- !u!61 &535552231024525930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128,6 +110,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &-1501823853832859557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535552231024525931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f62eea2c9f1eb45b38552d72fad287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 8786345793763259263, guid: e0ae448829e6b8c489fc910c936449dc,
+    type: 3}
+  parentRb: {fileID: 0}
+  weaponForce: 30
+  defaultTimer: 0.5
+  distance: 4
 --- !u!1 &1802646558626790608
 GameObject:
   m_ObjectHideFlags: 0
