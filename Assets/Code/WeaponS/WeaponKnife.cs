@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WeaponKnife : Weapon
 {
+	private Rigidbody2D rb;
 	void Start()
 	{
-
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	private void Update()
@@ -17,9 +18,7 @@ public class WeaponKnife : Weapon
 	public override void Execute(float v)
 	{
 		timer = defaultTimer;
-		var go = Instantiate(projectile, this.transform.position, this.transform.rotation);
-		var rb = go.GetComponent<Rigidbody2D>();
-		parentRb.AddForce(-weaponForce * transform.up, ForceMode2D.Impulse);
-		Destroy(go, 5);
+		rb.AddForce(-weaponForce * transform.up, ForceMode2D.Impulse);
+		Destroy(this.gameObject, 10);
 	}
 }

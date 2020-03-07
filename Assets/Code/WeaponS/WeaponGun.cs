@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class WeaponGun : Weapon
 {
-    void Start()
-    {
-        
-    }
+	public GameObject projectile;
 
 	private void Update()
 	{
