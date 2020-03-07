@@ -17,7 +17,7 @@ public class PlayerConroller : MonoBehaviour
 	public float verticalForce;
 	public float jumpForceMultiplier = 1.0f; 
 
-	private float maxVelocity = 35;
+	private float maxVelocity = 30;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
@@ -136,7 +136,7 @@ public class PlayerConroller : MonoBehaviour
 			dir = hit.point - new Vector2(transform.position.x, transform.position.y);
 			hitDir = dir.normalized;
 			isGrounded = true;
-			crashForce.Crash(hit);
+			crashForce.Crash(hit.point);
 		}
 		else
 		{
@@ -145,6 +145,11 @@ public class PlayerConroller : MonoBehaviour
 	}
 
 	public float crashBonus = 10.0f;
+
+	private void FixedUpdate()
+	{
+		rbBody.velocity = Vector2.ClampMagnitude(rbBody.velocity, maxVelocity);
+	}
 	private void HandleMovement()
 	{
 		float horizontal = Input.GetAxis(inputHorizontal);
@@ -152,7 +157,6 @@ public class PlayerConroller : MonoBehaviour
 		currentHorizontalForce = horizontal * Time.deltaTime * horizontalForce;
 		currentVerticalForce = vertical * Time.deltaTime * verticalForce;
 
-		
 		if(!isGrounded && currentVerticalForce > 0)
 		{
 			currentVerticalForce = 0;
@@ -168,7 +172,6 @@ public class PlayerConroller : MonoBehaviour
 		{
 			AddForces(rbBody, ForceMode2D.Impulse);
 		}
-		rbBody.velocity = Vector2.ClampMagnitude(rbBody.velocity, maxVelocity);
 	}
 
 	private void AddForces(Rigidbody2D rb, ForceMode2D mode = ForceMode2D.Force)

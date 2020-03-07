@@ -12,6 +12,9 @@ public class ProjectileScript : MonoBehaviour
     private Collider2D[] pushCol;
     public float explosionForce = 100;
     public float explosionRadious=10;
+
+	public int IgnoreLayer { get; internal set; } = -11;
+
 	public float deathTimer = 5.0f;
 
     void Start()
@@ -31,16 +34,14 @@ public class ProjectileScript : MonoBehaviour
     {
         if ((colMask.value & 1 << col.gameObject.layer) == 1 << col.gameObject.layer)
         {
-            Debug.Log("projectileCol");
             Destroy(gameObject);
-            pushCol = Physics2D.OverlapCircleAll(col.contacts[0].point, explosionRadious);
+            pushCol = Physics2D.OverlapCircleAll(col.contacts[0].point, explosionRadious, ~(1 << IgnoreLayer));
             
             for (int i = 0; i < pushCol.Length; i++)
             {
 				var rb = pushCol[i].GetComponent<Rigidbody2D>();
 				if (rb != null)
                 {
-                    Debug.Log(pushCol[i]);
 					rb.AddExplosionForce(explosionForce, col.contacts[0].point, explosionRadious);
                 }
             }
