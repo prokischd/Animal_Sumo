@@ -27,13 +27,14 @@ public class CrashForce : MonoBehaviour
 			pushCol = Physics2D.OverlapCircleAll(hit.point, explosionRadious, colMask);
 			foreach(var collidedWith in pushCol)
 			{
-				var rb = collidedWith.GetComponent<Rigidbody2D>();
-				if(rb != null)
+				var cf = collidedWith.GetComponent<CrashForce>();
+				if(cf != null)
 				{
-					rb.AddExplosionForce(playerController.GetExplosionForce(), hit.point, explosionRadious);					
+					var rb = cf.gameObject.GetComponent<Rigidbody2D>();
+					rb.AddExplosionForce(playerController.GetExplosionForce(), mode: ForceMode2D.Impulse, explosionPosition: hit.point);
 				}
-				Instantiate(explosion, hit.point, Quaternion.identity);
-			}		
+			}
+			Instantiate(explosion, hit.point, Quaternion.identity);
 		}
 		playerController.crashBonus = 1.0f;
 	}

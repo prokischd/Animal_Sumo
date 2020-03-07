@@ -19,7 +19,7 @@ public class Grower : Consumable
 		{
 			pc.MultiplyScale(growMultiplier);
 			pc.MultiplyLines(growMultiplier);
-			pc.MultiplyVerticalForce(growMultiplier);
+			pc.MultiplyRayLine(growMultiplier);
 			yield return null;
 		}
 
@@ -29,7 +29,7 @@ public class Grower : Consumable
 		{
 			pc.MultiplyScale(1 / growMultiplier);
 			pc.MultiplyLines(1 / growMultiplier);
-			pc.MultiplyVerticalForce(1 / growMultiplier);
+			pc.MultiplyRayLine(1 / growMultiplier);
 			yield return null;
 		}
 		canAffect = true;

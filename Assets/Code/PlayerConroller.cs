@@ -16,14 +16,14 @@ public class PlayerConroller : MonoBehaviour
 	public float verticalForce;
 	public float jumpForceMultiplier = 1.0f; 
 
-	public float maxVelocity = 5000;
+	private float maxVelocity = 500;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
 
-	internal void MultiplyVerticalForce(float growMultiplier)
+	internal void MultiplyRayLine(float growMultiplier)
 	{
-		jumpForceMultiplier *= growMultiplier;
+		floorHitDistance *= growMultiplier;
 	}
 
 	public float crashMultiplier = 20.0f;
@@ -39,7 +39,7 @@ public class PlayerConroller : MonoBehaviour
 
 	public bool isGrounded = true;
 	public bool crashing;
-	public float explosionForce = 5000;
+	private float explosionForce = 100;
 	private void Start()
 	{
 		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
@@ -147,6 +147,7 @@ public class PlayerConroller : MonoBehaviour
 		{
 			AddForces(rbBody, ForceMode2D.Impulse);
 		}
+		rbBody.velocity = Vector2.ClampMagnitude(rbBody.velocity, maxVelocity);
 	}
 
 	private void AddForces(Rigidbody2D rb, ForceMode2D mode = ForceMode2D.Force)
@@ -158,6 +159,5 @@ public class PlayerConroller : MonoBehaviour
 		}
 		rb.AddForce(currentHorizontalForce * multiplier * Vector3.right, mode);
 		rb.AddForce(currentVerticalForce * Vector3.up, mode);
-		rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
 	}
 }
