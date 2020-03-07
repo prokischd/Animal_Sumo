@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour
 {
-	public float conveyorForce = 100.0f;
-	private BoxCollider2D collider;
-
-	void Start()
-    {
-		collider = GetComponent<BoxCollider2D>();
-    }
-
+	public float conveyorForce = 10.0f;
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{

@@ -17,7 +17,7 @@ public class PlayerConroller : MonoBehaviour
 	public float verticalForce;
 	public float jumpForceMultiplier = 1.0f; 
 
-	private float maxVelocity = 30;
+	private float maxVelocity = 10;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
@@ -123,7 +123,8 @@ public class PlayerConroller : MonoBehaviour
 	{
 		foreach(var line in lines)
 		{
-			line.SetWidth(line.startWidth * multiplier, line.endWidth * multiplier);
+			line.startWidth *= multiplier;
+			line.endWidth *= multiplier;
 		}
 	}
 
