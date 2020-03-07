@@ -30,6 +30,8 @@ public class PlayerConroller : MonoBehaviour
 	private System.Random rng = new System.Random();
 
 	public bool isGrounded = true;
+	public bool crashing;
+	public float explosionForce = 5000;
 	private void Start()
 	{
 		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
@@ -45,6 +47,12 @@ public class PlayerConroller : MonoBehaviour
 				lines.Add(lr);
 			}
 		}
+	}
+
+	internal float GetExplosionForce()
+	{
+		var force = explosionForce * crashBonus * rbBody.transform.localScale.x;
+		return force;
 	}
 
 	private IEnumerable<PlayerConroller> Yield()
@@ -94,18 +102,17 @@ public class PlayerConroller : MonoBehaviour
 		Debug.DrawRay(startPos, dir * floorHitDistance, Color.red);
 		if(hit.collider != null)
 		{
-			Debug.Log("GROUNDED");
 			dir = hit.point - new Vector2(transform.position.x, transform.position.y);
 			hitDir = dir.normalized;
 			isGrounded = true;
 		}
 		else
 		{
-			Debug.Log("NOT GROUNDED");
 			isGrounded = false;
 		}		
 	}
 
+	public float crashBonus = 10.0f;
 	private void HandleMovement()
 	{
 		float horizontal = Input.GetAxis(inputHorizontal);
@@ -121,6 +128,8 @@ public class PlayerConroller : MonoBehaviour
 		if(currentVerticalForce < 0 && !isGrounded)
 		{
 			Debug.Log("Crashing");
+			crashing = true;
+			crashBonus += Time.deltaTime;
 			currentVerticalForce *= crashMultiplier;
 			AddForces(rbBody, ForceMode2D.Force);
 		}
@@ -128,9 +137,6 @@ public class PlayerConroller : MonoBehaviour
 		{
 			AddForces(rbBody, ForceMode2D.Impulse);
 		}
-		
-		//AddForces(child1);
-		//AddForces(child2);
 	}
 
 	private void AddForces(Rigidbody2D rb, ForceMode2D mode = ForceMode2D.Force)

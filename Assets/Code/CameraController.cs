@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 {
 	public List<Transform> targets;
 	public Vector3 offset;
-	public float smoothTime = 0.5f;
+	private float smoothTime = 0.001f;
 	public float minZoom = 40;
 	public float maxZoom = 10;
 	public float zoomLimiter = 50;
