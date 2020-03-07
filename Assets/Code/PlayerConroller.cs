@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour
 {
-	public Rigidbody2D rbHead;
-	public Rigidbody2D rbBody;
-	public Rigidbody2D child1;
-	public Rigidbody2D child2;
+	private Rigidbody2D rbHead;
+	private Rigidbody2D rbBody;
+	private Rigidbody2D child1;
+	private Rigidbody2D child2;
 	public string inputHorizontal;
 	public string inputVertical;
 
@@ -32,6 +32,8 @@ public class PlayerConroller : MonoBehaviour
 	public bool isGrounded = true;
 	private void Start()
 	{
+		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
+		rbHead = rbBody.transform.Find("Head").GetComponent<Rigidbody2D>();
 		child1 = rbBody.transform.Find("Arm_R").GetChild(3).GetComponent<Rigidbody2D>();
 		child2 = rbBody.transform.Find("Arm_L").GetChild(3).GetComponent<Rigidbody2D>();
 		enemies = FindObjectsOfType<PlayerConroller>().Except(this.Yield()).ToList();
