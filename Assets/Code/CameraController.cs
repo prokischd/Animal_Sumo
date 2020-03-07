@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
 	public float minZoom = 40;
 	public float maxZoom = 10;
 	public float zoomLimiter = 50;
+	public float deathPosition = -15;
 	private Vector3 currentVelocity;
 	private Camera cam;
 	private void Start()
@@ -27,6 +28,12 @@ public class CameraController : MonoBehaviour
 		}
 		Move();
 		Zoom();
+		RefreshTargets();
+	}
+
+	private void RefreshTargets()
+	{
+		targets.RemoveAll(x => x.position.y < deathPosition);
 	}
 
 	private void Zoom()
