@@ -35,9 +35,11 @@ public class Weapon : MonoBehaviour
 		var go = Instantiate(projectile, this.transform.position, Quaternion.identity);
 		var rb = go.GetComponent<Rigidbody2D>();
 		//var dir = LaciMath.GetRandomSign() * LaciMath.GetRandomValue() * distance;
-		int sign = v > 0 ? 1 : -1;
-		var dir =  sign * distance;
-		rb.AddForce(weaponForce * new Vector2(dir, 0), ForceMode2D.Impulse);
+
+		//int sign = v > 0 ? 1 : -1;
+		//var dir =  sign * distance;
+		//rb.AddForce(weaponForce * new Vector2(dir, 0), ForceMode2D.Impulse);
+		rb.AddForce(weaponForce * -transform.right, ForceMode2D.Impulse);
 		parentRb.AddForce(-weaponForce * transform.up, ForceMode2D.Impulse);
 		Destroy(go, 5);
 	}

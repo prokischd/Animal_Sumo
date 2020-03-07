@@ -35,6 +35,7 @@ public class WeaponController : MonoBehaviour
 			{
 				weapon.transform.parent = slot.go.transform;
 				weapon.transform.localPosition = Vector3.zero;
+				weapon.transform.localRotation = slot.go.transform.localRotation;
 				weapon.parentRb = slot.go.GetComponent<Rigidbody2D>();
 				slot.weapon = weapon;
 				slot.taken = true;
