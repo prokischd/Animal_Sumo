@@ -1,12 +1,60 @@
 fileFormatVersion: 2
 guid: e1166ab27ed344858a74c9926fc3c2a1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -683815487859537459
+    second: Sprites_Animal_0
+  - first:
+      213: 8143469305474870794
+    second: Sprites_Animal_1
+  - first:
+      213: 7131635795562089195
+    second: Sprites_Animal_2
+  - first:
+      213: 701981213971013155
+    second: Sprites_Animal_3
+  - first:
+      213: 3874140307485517130
+    second: Sprites_Animal_4
+  - first:
+      213: 3363998168228277399
+    second: Sprites_Animal_5
+  - first:
+      213: 1393132542500789200
+    second: Sprites_Animal_6
+  - first:
+      213: 7179053853773931246
+    second: Sprites_Animal_7
+  - first:
+      213: -5412624957447004368
+    second: Sprites_Animal_8
+  - first:
+      213: -5820842710757951043
+    second: Sprites_Animal_9
+  - first:
+      213: 7306094483611237159
+    second: Sprites_Animal_10
+  - first:
+      213: -2508071030276128198
+    second: Sprites_Animal_11
+  - first:
+      213: -8644660577292659371
+    second: Sprites_Animal_12
+  - first:
+      213: 2043498217375932470
+    second: Sprites_Animal_13
+  - first:
+      213: 9115425532121386601
+    second: Sprites_Animal_14
+  - first:
+      213: 7439488697450762856
+    second: Sprites_Animal_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -40,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +118,369 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Sprites_Animal_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1279
+        width: 281
+        height: 736
+      alignment: 9
+      pivot: {x: 0.40662974, y: 0.06034055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9c832df699286f0800000000000000
+      internalID: -683815487859537459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_1
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1257
+        width: 310
+        height: 752
+      alignment: 9
+      pivot: {x: 0.7821179, y: 0.092954755}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e6028ff2a630170800000000000000
+      internalID: 8143469305474870794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_2
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 1335
+        width: 621
+        height: 626
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea40f598f8a8f260800000000000000
+      internalID: 7131635795562089195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_3
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 1733
+        width: 193
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e5db1e130fdb900800000000000000
+      internalID: 701981213971013155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_4
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 1733
+        width: 218
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4562b56516b3c530800000000000000
+      internalID: 3874140307485517130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 588
+        width: 766
+        height: 699
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79caf42c2825fae20800000000000000
+      internalID: 3363998168228277399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_6
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 645
+        width: 459
+        height: 559
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dbdbc09aa6655310800000000000000
+      internalID: 1393132542500789200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_7
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 942
+        width: 223
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee22899917f11a360800000000000000
+      internalID: 7179053853773931246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_8
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 938
+        width: 236
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f15fc474e72e4b0800000000000000
+      internalID: -5412624957447004368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_9
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 583
+        width: 214
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9b9db0566383fa0800000000000000
+      internalID: -5820842710757951043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_10
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 601
+        width: 196
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bb6173936746560800000000000000
+      internalID: 7306094483611237159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 142
+        width: 744
+        height: 419
+      alignment: 9
+      pivot: {x: 0.21788198, y: 0.46869087}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3281f0bfaa813dd0800000000000000
+      internalID: -2508071030276128198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_12
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 150
+        width: 407
+        height: 425
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555d5ae910ff70880800000000000000
+      internalID: -8644660577292659371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_13
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 0
+        width: 551
+        height: 561
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63026d14dc6fb5c10800000000000000
+      internalID: 2043498217375932470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_14
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 1397
+        width: 206
+        height: 218
+      alignment: 9
+      pivot: {x: 0.30895403, y: 0.3395296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e0f92d93f708e70800000000000000
+      internalID: 9115425532121386601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites_Animal_15
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 1401
+        width: 192
+        height: 219
+      alignment: 9
+      pivot: {x: 0.5911007, y: 0.22045843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8621612ed8f5e3760800000000000000
+      internalID: 7439488697450762856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -84,8 +492,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
