@@ -18,12 +18,12 @@ public class Weapon : MonoBehaviour
 		rng = new System.Random();
 	}
 
-	public virtual bool CanExecute()
+	public virtual bool CanExecute(PlayerConroller target)
 	{
 		return timer <= 0.0f && parentRb != null;
 	}
 
-	public virtual void Execute(float v, Transform target)
+	public virtual void Execute(float v, PlayerConroller target)
 	{
 	}
 

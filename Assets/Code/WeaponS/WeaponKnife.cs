@@ -5,20 +5,28 @@ using UnityEngine;
 public class WeaponKnife : Weapon
 {
 	private Rigidbody2D rb;
+	private BoxCollider2D col;
 	void Start()
 	{
+		col = GetComponent<BoxCollider2D>();
 		rb = GetComponent<Rigidbody2D>();
 	}
 
 	private void Update()
 	{
-		timer -= Time.deltaTime;
 	}
-
-	public override void Execute(float v, Transform target)
+	public override bool CanExecute(PlayerConroller target)
 	{
-		timer = defaultTimer;
-		rb.AddForce(-weaponForce * transform.up, ForceMode2D.Impulse);
-		Destroy(this.gameObject, 10);
+		if(target.inputBlocked != 0)
+		{
+			return false;
+		}
+		var dist = Vector3.Distance(this.transform.position, target.rbBody.position);
+		return dist < 1.3f;
+	}
+	public override void Execute(float v, PlayerConroller target)
+	{
+		target.LoseInput(1.5f);
+		Destroy(this.gameObject);
 	}
 }

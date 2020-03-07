@@ -58,19 +58,15 @@ public class WeaponController : MonoBehaviour
 
 	private void Update()
 	{
-		foreach(var spot in weaponSpots)
+		if(pc.inputBlocked != 0)
 		{
-			if(spot.HasWeapon())
-			{
-				spot.weapon.RotateTowards(pc.GetRandomEnemyTransform());
-			}
+			return;
 		}
-
 		foreach(var spot in weaponSpots)
 		{
-			if(spot.HasWeapon() && spot.weapon.CanExecute())
+			if(spot.HasWeapon() && spot.weapon.CanExecute(pc.GetRandomEnemy()))
 			{
-				spot.weapon.Execute(pc.GetCurrentHorizontalForce(), pc.GetRandomEnemyTransform());
+				spot.weapon.Execute(pc.GetCurrentHorizontalForce(), pc.GetRandomEnemy());
 			}
 		}
 	}

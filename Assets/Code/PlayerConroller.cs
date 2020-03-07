@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,17 +7,18 @@ using UnityEngine;
 public class PlayerConroller : MonoBehaviour
 {
 	private Rigidbody2D rbHead;
-	private Rigidbody2D rbBody;
+	public Rigidbody2D rbBody { get; set; }
 	private Rigidbody2D child1;
 	private Rigidbody2D child2;
 	public string inputHorizontal;
 	public string inputVertical;
 
 	public float horizontalForce;
+	public int inputBlocked { get; private set; } = 0;
 	public float verticalForce;
 	public float jumpForceMultiplier = 1.0f; 
 
-	private float maxVelocity = 500;
+	private float maxVelocity = 100;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
@@ -39,7 +41,7 @@ public class PlayerConroller : MonoBehaviour
 
 	public bool isGrounded = true;
 	public bool crashing;
-	private float explosionForce = 100;
+	private float explosionForce = 50;
 	private void Start()
 	{
 		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
@@ -64,15 +66,36 @@ public class PlayerConroller : MonoBehaviour
 		return force;
 	}
 
+	internal void LoseInput(float v)
+	{
+		inputBlocked++;
+		PlayDizzyEffect();
+		StartCoroutine(RegainInput(v));
+	}
+
+	private void PlayDizzyEffect()
+	{
+		
+	}
+
+	private IEnumerator RegainInput(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		inputBlocked--;
+	}
+
 	private IEnumerable<PlayerConroller> Yield()
 	{
 		yield return this;
 	}
 
 	void Update()
-    {
-		HandleMovement();
-		HandleRayCast();
+    {		
+		if(inputBlocked == 0)
+		{
+			HandleMovement();
+			HandleRayCast();
+		}		
 	}
 
 	public float GetCurrentHorizontalForce()
@@ -93,10 +116,10 @@ public class PlayerConroller : MonoBehaviour
 		}
 	}
 
-	public Transform GetRandomEnemyTransform()
+	public PlayerConroller GetRandomEnemy()
 	{
-		int val = rng.Next(enemies.Count + 1);
-		return enemies[val].transform;
+		int val = rng.Next(enemies.Count);
+		return enemies[val];
 	}
 
 	public float GetBodyScale()

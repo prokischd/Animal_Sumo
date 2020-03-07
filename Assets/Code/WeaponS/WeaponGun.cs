@@ -11,7 +11,7 @@ public class WeaponGun : Weapon
 		timer -= Time.deltaTime;
 	}
 
-	public override void Execute(float v, Transform target)
+	public override void Execute(float v, PlayerConroller target)
 	{
 		timer = defaultTimer;
 		var go = Instantiate(projectile, this.transform.position, this.transform.rotation);

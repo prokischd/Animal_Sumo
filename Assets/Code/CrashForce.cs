@@ -10,7 +10,7 @@ public class CrashForce : MonoBehaviour
 	public LayerMask colMask;
 	public GameObject explosion;
 	public float explosionForce = 5000;
-	public float explosionRadious = 10;
+	public float explosionRadious = 25;
 
 
 	void Start()
