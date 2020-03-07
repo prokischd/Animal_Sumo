@@ -70,13 +70,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7221143315537504598, guid: 6859d213909e04497a995372b511c6cf,
+  m_Sprite: {fileID: 7131635795562089195, guid: e1166ab27ed344858a74c9926fc3c2a1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.69, y: 6.9}
+  m_Size: {x: 6.21, y: 6.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 8914193611553547576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.683109, y: -2.6734827, z: -5.5161834}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 15.333703, y: 15.333703, z: 15.333703}
   m_Children:
   - {fileID: 8914193610620427270}
   m_Father: {fileID: 0}
@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growMultiplier: 1.03
+  maxScale: 2.2
+  cooldown: 6
 --- !u!61 &8914193611553547581
 BoxCollider2D:
   m_ObjectHideFlags: 0

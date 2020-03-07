@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour
 {
-	private Rigidbody2D rbHead;
 	public Rigidbody2D rbBody { get; set; }
 	private Rigidbody2D child1;
 	private Rigidbody2D child2;
@@ -18,7 +17,7 @@ public class PlayerConroller : MonoBehaviour
 	public float verticalForce;
 	public float jumpForceMultiplier = 1.0f; 
 
-	private float maxVelocity = 100;
+	private float maxVelocity = 35;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
@@ -45,7 +44,6 @@ public class PlayerConroller : MonoBehaviour
 	private void Start()
 	{
 		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
-		rbHead = rbBody.transform.Find("Head").GetComponent<Rigidbody2D>();
 		child1 = rbBody.transform.Find("Arm_R").GetChild(3).GetComponent<Rigidbody2D>();
 		child2 = rbBody.transform.Find("Arm_L").GetChild(3).GetComponent<Rigidbody2D>();
 		enemies = FindObjectsOfType<PlayerConroller>().Except(this.Yield()).ToList();

@@ -67,6 +67,7 @@ public class WeaponController : MonoBehaviour
 			if(spot.HasWeapon() && spot.weapon.CanExecute(pc.GetRandomEnemy()))
 			{
 				spot.weapon.Execute(pc.GetCurrentHorizontalForce(), pc.GetRandomEnemy());
+				spot.taken = false;
 			}
 		}
 	}

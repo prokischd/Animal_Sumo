@@ -359,7 +359,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900742645554939
 HingeJoint2D:
@@ -504,7 +504,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900742920159545
 HingeJoint2D:
@@ -649,7 +649,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743070339591
 HingeJoint2D:
@@ -794,7 +794,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743123207465
 HingeJoint2D:
@@ -940,7 +940,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743344794283
 HingeJoint2D:
@@ -1085,7 +1085,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743378759573
 HingeJoint2D:
@@ -1230,7 +1230,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743396166973
 HingeJoint2D:
@@ -1375,7 +1375,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743781529745
 HingeJoint2D:
@@ -1520,7 +1520,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743870933519
 HingeJoint2D:
@@ -1666,7 +1666,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743923026423
 HingeJoint2D:
@@ -1811,7 +1811,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900743967382082
 HingeJoint2D:
@@ -1957,7 +1957,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900744242619039
 HingeJoint2D:
@@ -2184,7 +2184,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900744334974300
 HingeJoint2D:
@@ -2329,7 +2329,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900744391123514
 HingeJoint2D:
@@ -2474,7 +2474,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900744649815632
 HingeJoint2D:
@@ -2620,7 +2620,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &2628900744663809441
 HingeJoint2D:
@@ -2765,7 +2765,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &4189318560976975544
 HingeJoint2D:
@@ -2917,7 +2917,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &480439914219911779
 MonoBehaviour:
@@ -3020,7 +3020,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &4189318561221560640
 HingeJoint2D:
@@ -3432,11 +3432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823e053f54602554e98f747f2358ea38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHorizontal: Player1Horizontal
-  inputVertical: Player1Vertical
+  inputHorizontal: Player2Horizontal
+  inputVertical: Player2Vertical
   horizontalForce: 400
   verticalForce: 2000
-  maxVelocity: 10
+  jumpForceMultiplier: 1
   impulseMultiplier: 5
   currentHorizontalForce: 0
   currentVerticalForce: 0
@@ -3450,7 +3450,6 @@ MonoBehaviour:
   lines: []
   isGrounded: 1
   crashing: 0
-  explosionForce: 5000
   crashBonus: 10
 --- !u!1 &4189318562382428395
 GameObject:
@@ -3521,7 +3520,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &4189318562382428393
 HingeJoint2D:
@@ -3690,6 +3689,7 @@ GameObject:
   - component: {fileID: 4189318562678322076}
   - component: {fileID: 4189318562678322077}
   - component: {fileID: 4189318562678321250}
+  - component: {fileID: 714472493934157418}
   m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
@@ -3747,8 +3747,32 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!233 &714472493934157418
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189318562678322079}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 4189318562874995157}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: -0.011999607}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 1
+  m_AngleLimits:
+    m_LowerAngle: -20
+    m_UpperAngle: 20
 --- !u!1 &4189318562790674354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,7 +3842,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &4189318562790674352
 HingeJoint2D:
@@ -3964,7 +3988,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &4189318562874995156
 HingeJoint2D:
@@ -4003,9 +4027,9 @@ HingeJoint2D:
   m_ConnectedRigidBody: {fileID: 4189318562678321250}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0.011999965}
+  m_ConnectedAnchor: {x: 0, y: 0.011999607}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4278,7 +4302,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &4189318562993973086
 HingeJoint2D:
