@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a8572c13f70614d91f4719a8ddd13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorForce: 10000
+  conveyorForce: 50
 --- !u!198 &6070579653420712763
 ParticleSystem:
   m_ObjectHideFlags: 0
