@@ -43,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.22561412, g: 0.24789059, b: 0.2830189, a: 0}
+  m_BackGroundColor: {r: 0.21293165, g: 0.32326934, b: 0.5188679, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -58,7 +58,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 62
+  field of view: 87
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -96,11 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff8b40f8a3a826469e0f5f1a5561cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
+  targets: []
   offset: {x: 0, y: 0, z: -65}
   minZoom: 40
   maxZoom: 10
   zoomLimiter: 50
-  deathPosition: -30
