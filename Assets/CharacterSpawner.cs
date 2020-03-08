@@ -31,9 +31,19 @@ public class CharacterSpawner : MonoBehaviour
 		var go	= Instantiate(charactor2, spawningPoints[idx].transform.position, Quaternion.identity);
 		var pc = go.GetComponent<PlayerConroller>();
 		pc.ConfigureHealth(uiObject.transform.Find("Hearts").gameObject);
+		ChangeLayers(pc.gameObject, LayerMask.NameToLayer(input));
 		pc.inputVertical = input + "Vertical";
 		pc.inputHorizontal = input + "Horizontal";
 		OnTargetRevived?.Invoke(pc.rbBody.transform);
+	}
+
+	private void ChangeLayers(GameObject gameObject, int v)
+	{
+		gameObject.layer = v;
+		foreach(Transform go in gameObject.transform)
+		{
+			ChangeLayers(go.gameObject, v);
+		}
 	}
 
 	internal void ResetTarget(Transform target)
