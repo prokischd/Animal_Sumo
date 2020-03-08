@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerConroller : MonoBehaviour
 {
@@ -107,6 +108,13 @@ public class PlayerConroller : MonoBehaviour
 			cSpawner.OnDeath?.Invoke(rbBody.transform);
 			alive = false;
 			HP--;
+		}
+
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			var selector = FindObjectOfType<CharacterSelector>();
+			Destroy(selector.gameObject);
+			SceneManager.LoadScene(0);
 		}
 	}
 

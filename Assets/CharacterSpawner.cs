@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class CharacterSpawner :MonoBehaviour
+public class CharacterSpawner : MonoBehaviour
 {
 	private System.Random rng = new System.Random();
 	public List<GameObject> spawningPoints;

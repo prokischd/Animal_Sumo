@@ -31,6 +31,8 @@ public class CharacterSelector : MonoBehaviour
 	private bool isLoading = false;
 	public bool selectorEnabled = true;
 
+	public List<Image> splashArts;
+
 	private void Start()
 	{
 		imageData = new List<ImageData>();

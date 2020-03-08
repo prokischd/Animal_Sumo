@@ -40,8 +40,7 @@ public class CrashForce :MonoBehaviour
 					rb.AddExplosionForce(playerController.GetExplosionForce(), mode: ForceMode2D.Impulse, explosionPosition: hit);
 				}
 			}
-			//var go = Instantiate(explosion, hit, Quaternion.identity);
-			//go.GetComponent<ProjectileScript>().IgnoreLayer = playerController.gameObject.layer;
+			var go = Instantiate(explosion, hit, Quaternion.identity);
 			canCrash = false;
 			StartCoroutine(ResetCrashTimer(1.0f));
 		}
