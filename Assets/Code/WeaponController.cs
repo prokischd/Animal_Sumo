@@ -34,12 +34,7 @@ public class WeaponController : MonoBehaviour
 			if(slot != null && weapon.parentRb == null)
 			{
 				AudioSource.PlayClipAtPoint(weapon.equip, Camera.main.transform.position);
-				weapon.transform.parent = slot.go.transform;
-				weapon.transform.localPosition = Vector3.zero;
-				weapon.transform.rotation = slot.go.transform.rotation;
-				weapon.parentRb = slot.go.GetComponent<Rigidbody2D>();
-				slot.weapon = weapon;
-				slot.taken = true;
+				weapon.Possess(slot);
 			}			
 		}
 		else if(collision.gameObject.GetComponent<Consumable>() is Consumable consumable)
