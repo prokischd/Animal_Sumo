@@ -38,7 +38,7 @@ public class PlayerConroller : MonoBehaviour
 
 	public bool isGrounded = true;
 	public bool crashing;
-	private float explosionForce = 220;
+	private float explosionForce = 170;
 
 	private CharacterSpawner cSpawner;
 	public int HP { get; private set; }
@@ -46,6 +46,7 @@ public class PlayerConroller : MonoBehaviour
 
 	List<Image> hps = new List<Image>();
 	public GameObject vfxDizzy;
+
 
 	internal void ConfigureHealth(GameObject gameObject)
 	{
@@ -89,6 +90,19 @@ public class PlayerConroller : MonoBehaviour
 	{
 		var force = explosionForce * crashBonus * rbBody.transform.localScale.x;
 		return force;
+	}
+
+	private float velChanger = 25;
+	internal void ChangeMaxVelocity()
+	{
+		maxVelocity += velChanger;
+		StartCoroutine(RegainMaxVelocity(1.5f));
+	}
+
+	private IEnumerator RegainMaxVelocity(float v)
+	{
+		yield return new WaitForSeconds(v);
+		maxVelocity -= velChanger;
 	}
 
 	internal void LoseInput(float v)

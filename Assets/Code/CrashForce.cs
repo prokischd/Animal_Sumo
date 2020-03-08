@@ -39,12 +39,15 @@ public class CrashForce : MonoBehaviour
 					cf.canCrash = false;
 					StartCoroutine(cf.ResetCrashTimer(1.0f));
 					var rb = cf.gameObject.GetComponent<Rigidbody2D>();
-					wc.UseWeapon(cf.GetComponentInParent<PlayerConroller>());
+					var otherpc = cf.GetComponentInParent<PlayerConroller>();
+					wc.UseWeapon(otherpc);
+					otherpc.ChangeMaxVelocity();
 					rb.AddExplosionForce(playerController.GetExplosionForce(), mode: ForceMode2D.Impulse, explosionPosition: hit);
 					playerController.rbBody.velocity = Vector3.zero;
 				}
 			}
 			var go = Instantiate(explosion, hit, Quaternion.identity);
+			go.transform.localScale *= playerController.rbBody.transform.localScale.x;
 			canCrash = false;
 			StartCoroutine(ResetCrashTimer(1.0f));
 		}
