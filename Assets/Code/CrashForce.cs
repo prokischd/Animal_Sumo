@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrashForce :MonoBehaviour
+public class CrashForce : MonoBehaviour
 {
 	private PlayerConroller playerController;
+	private WeaponController wc;
 	private Collider2D[] pushCol;
 	public float force = 50f;
 	public LayerMask colMask;
@@ -16,6 +17,7 @@ public class CrashForce :MonoBehaviour
 
 	void Start()
 	{
+		wc = GetComponent<WeaponController>();
 		playerController = transform.parent.GetComponent<PlayerConroller>();
 		colMask = colMask & ~(1 << playerController.gameObject.layer);
 		colMask2 = colMask;
@@ -37,6 +39,7 @@ public class CrashForce :MonoBehaviour
 					cf.canCrash = false;
 					StartCoroutine(cf.ResetCrashTimer(1.0f));
 					var rb = cf.gameObject.GetComponent<Rigidbody2D>();
+					wc.UseWeapon(cf.GetComponentInParent<PlayerConroller>());
 					rb.AddExplosionForce(playerController.GetExplosionForce(), mode: ForceMode2D.Impulse, explosionPosition: hit);
 				}
 			}
