@@ -25,13 +25,13 @@ public class CharacterSelector : MonoBehaviour
 
 	private List<ImageData> imageData;
 	public List<GameObject> characters;
+	public List<Sprite> splashArts;
 
 	public int leftIdx;
 	public int rightIdx;
 	private bool isLoading = false;
 	public bool selectorEnabled = true;
 
-	public List<Image> splashArts;
 
 	private void Start()
 	{

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSpawner : MonoBehaviour
 {
@@ -15,16 +16,21 @@ public class CharacterSpawner : MonoBehaviour
 	{
 		var selector = FindObjectOfType<CharacterSelector>();
 		var charactor = selector.characters[selector.leftIdx];
+		var splash = selector.splashArts[selector.leftIdx];
 		var rand = rng.Next(spawningPoints.Count);
-		SpawnCharactor(charactor, "Player1", rand);
+		SpawnCharactor(charactor, "Player1", rand, splash);
 		var charactor2 = selector.characters[selector.rightIdx];
-		SpawnCharactor(charactor2, "Player2", (rand + 1) % spawningPoints.Count);
+		splash = selector.splashArts[selector.rightIdx];
+		SpawnCharactor(charactor2, "Player2", (rand + 1) % spawningPoints.Count, splash);
 	}
 
-	private void SpawnCharactor(GameObject charactor2, string input, int idx)
+	private void SpawnCharactor(GameObject charactor2, string input, int idx, Sprite sprite)
 	{
+		var uiObject = GameObject.Find(input);
+		uiObject.transform.Find("Portrait_Background").transform.GetChild(0).GetComponent<Image>().sprite = sprite;
 		var go	= Instantiate(charactor2, spawningPoints[idx].transform.position, Quaternion.identity);
 		var pc = go.GetComponent<PlayerConroller>();
+		pc.ConfigureHealth(uiObject.transform.Find("Hearts").gameObject);
 		pc.inputVertical = input + "Vertical";
 		pc.inputHorizontal = input + "Horizontal";
 		OnTargetRevived?.Invoke(pc.rbBody.transform);

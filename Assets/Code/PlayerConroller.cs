@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerConroller : MonoBehaviour
 {
@@ -40,8 +41,23 @@ public class PlayerConroller : MonoBehaviour
 
 	public float deathPosition = -40;
 	private CharacterSpawner cSpawner;
-	public int HP { get; set; } = 5;
+	private int HP { get; set; }
 	public bool CanGrow { get; set; } = true;
+
+	List<Image> hps = new List<Image>();
+
+	internal void ConfigureHealth(GameObject gameObject)
+	{
+		HealthObject = gameObject;
+		foreach(Transform t in HealthObject.transform)
+		{
+			var im = t.GetComponent<Image>();
+			hps.Add(im);
+		}
+		HP = hps.Count;
+	}
+
+	public GameObject HealthObject { get; set; }
 
 	private void Awake()
 	{
@@ -105,9 +121,7 @@ public class PlayerConroller : MonoBehaviour
 		}		
 		if(rbBody.transform.position.y < deathPosition && alive)
 		{
-			cSpawner.OnDeath?.Invoke(rbBody.transform);
-			alive = false;
-			HP--;
+			HandleDeath();
 		}
 
 		if(Input.GetKeyDown(KeyCode.Escape))
@@ -116,6 +130,14 @@ public class PlayerConroller : MonoBehaviour
 			Destroy(selector.gameObject);
 			SceneManager.LoadScene(0);
 		}
+	}
+
+	private void HandleDeath()
+	{
+		cSpawner.OnDeath?.Invoke(rbBody.transform);
+		hps[HP - 1].color = Color.black;
+		alive = false;
+		HP--;	
 	}
 
 	public float GetCurrentHorizontalForce()
