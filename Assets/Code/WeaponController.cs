@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -47,6 +48,19 @@ public class WeaponController : MonoBehaviour
 		}
 	}
 
+	internal void UseWeapon(PlayerConroller other)
+	{
+		foreach(var spot in weaponSpots)
+		{
+			if(spot.HasWeapon())
+			{
+				spot.weapon.Execute(pc.GetCurrentHorizontalForce(), other);
+				spot.taken = false;
+				break;
+			}
+		}
+	}
+
 	private WeaponSlot GetFreeWeaponSlot()
 	{
 		return weaponSpots.Where(w => !w.taken).FirstOrDefault();
@@ -54,7 +68,7 @@ public class WeaponController : MonoBehaviour
 
 	private void Update()
 	{
-		if(pc.inputBlocked != 0)
+		/*if(pc.inputBlocked != 0)
 		{
 			return;
 		}
@@ -65,6 +79,6 @@ public class WeaponController : MonoBehaviour
 				spot.weapon.Execute(pc.GetCurrentHorizontalForce(), pc.GetRandomEnemy());
 				spot.taken = false;
 			}
-		}
+		}*/
 	}
 }
