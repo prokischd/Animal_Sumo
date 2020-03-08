@@ -4871,7 +4871,7 @@ MonoBehaviour:
   colMask:
     serializedVersion: 2
     m_Bits: 1792
-  explosion: {fileID: 4483781192492679235, guid: 69c3bb62bd37d44c4b31dfbc7321a839,
+  explosion: {fileID: 8464052093493054767, guid: d84c83763be934155b28e379ed827b8e,
     type: 3}
   explosionForce: 5000
   explosionRadious: 10

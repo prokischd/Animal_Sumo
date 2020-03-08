@@ -32,6 +32,10 @@ public class CameraController : MonoBehaviour
 		cSpawner.OnDeath -= OnTargetDie;
 		cSpawner.OnTargetRevived += OnTargetRevived;
 		cSpawner.OnDeath += OnTargetDie;
+
+		var dist = GetGreatestDistance();
+		float newZoom = Mathf.Lerp(maxZoom, minZoom, dist / zoomLimiter);
+		cam.fieldOfView =  newZoom;
 	}
 
 	private void OnDestroy()
