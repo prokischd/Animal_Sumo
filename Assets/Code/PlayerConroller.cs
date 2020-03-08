@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class PlayerConroller : MonoBehaviour
 {
+	private Rigidbody2D rbHead;
 	public Rigidbody2D rbBody { get; set; }
 	private Rigidbody2D child1;
 	private Rigidbody2D child2;
@@ -44,6 +45,7 @@ public class PlayerConroller : MonoBehaviour
 	public bool CanGrow { get; set; } = true;
 
 	List<Image> hps = new List<Image>();
+	public GameObject vfxDizzy;
 
 	internal void ConfigureHealth(GameObject gameObject)
 	{
@@ -62,6 +64,7 @@ public class PlayerConroller : MonoBehaviour
 	{
 		cSpawner = FindObjectOfType<CharacterSpawner>();
 		rbBody = transform.Find("Body").GetComponent<Rigidbody2D>();
+		rbHead = rbBody.transform.Find("Head").GetComponent<Rigidbody2D>();
 		child1 = rbBody.transform.Find("Arm_R").GetChild(3).GetComponent<Rigidbody2D>();
 		child2 = rbBody.transform.Find("Arm_L").GetChild(3).GetComponent<Rigidbody2D>();
 		enemies = FindObjectsOfType<PlayerConroller>().Except(this.Yield()).ToList();
@@ -96,7 +99,8 @@ public class PlayerConroller : MonoBehaviour
 
 	private void PlayDizzyEffect()
 	{
-		
+		var go = Instantiate(vfxDizzy, rbHead.transform.position, Quaternion.identity);
+		go.transform.parent = rbHead.transform;
 	}
 
 	private IEnumerator RegainInput(float seconds)

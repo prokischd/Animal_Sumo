@@ -3724,7 +3724,8 @@ MonoBehaviour:
   lines: []
   isGrounded: 1
   crashing: 0
-  deathPosition: -40
+  vfxDizzy: {fileID: 5926939958071488328, guid: cabb95ff87538489a81f21d831246003,
+    type: 3}
   alive: 1
   crashBonus: 10
 --- !u!1 &4189318562382428395
