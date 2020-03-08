@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 {
 	public List<Transform> targets;
 	public Vector3 offset;
-	private float smoothTime = 0.05f;
+	private float smoothTime = 0.03f;
 	public float minZoom = 40;
 	public float maxZoom = 10;
 	public float zoomLimiter = 50;
@@ -88,7 +88,7 @@ public class CameraController : MonoBehaviour
 		}
 		Move();
 
-		if(smoothTime > 0.02f)
+		if(smoothTime > 0.01f)
 		{
 			smoothTime -= Time.deltaTime;
 		}
@@ -112,7 +112,7 @@ public class CameraController : MonoBehaviour
 		{
 			bounds.Encapsulate(t.position);
 		}
-		return bounds.size.x;
+		return bounds.size.x > bounds.size.y ? bounds.size.x : bounds.size.y;
 	}
 
 	private void Move()
