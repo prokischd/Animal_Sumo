@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
@@ -20,8 +21,14 @@ public class CameraController : MonoBehaviour
 
 	private float bigSmoothTime = 0.5f;
 	private Transform mid;
+
+	private Image winImage;
+	private GameObject winobj;
 	private void Start()
 	{
+		winobj = GameObject.Find("Player_Win_Canvas");
+		winImage = GameObject.Find("PWIN").GetComponent<Image>();
+		winobj.SetActive(false);
 		mid = FindObjectOfType<CharacterSpawner>().transform;
 		cam = GetComponent<Camera>();
 		cSpawner = FindObjectOfType<CharacterSpawner>();
@@ -54,12 +61,23 @@ public class CameraController : MonoBehaviour
 		smoothTime = bigSmoothTime;
 		if(target.parent.GetComponent<PlayerConroller>() is PlayerConroller pc)
 		{
-			if(pc.HP <= 0)
+			if(pc.HP <= 0 && !won)
 			{
+				WinUI(pc);
+				won = true;
 				return;
 			}
 		}
 		cSpawner.ResetTarget(target);
+	}
+	private bool won = false;
+	
+	
+	private void WinUI(PlayerConroller pc)
+	{
+		winobj.SetActive(true);
+		var winner = FindObjectsOfType<PlayerConroller>().Except(pc.Yield()).FirstOrDefault();
+		winImage.sprite = winner.Image;
 	}
 
 	private void LateUpdate()

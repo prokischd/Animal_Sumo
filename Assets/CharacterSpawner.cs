@@ -38,6 +38,7 @@ public class CharacterSpawner : MonoBehaviour
 		ChangeLayers(pc.gameObject, LayerMask.NameToLayer(input));
 		pc.inputVertical = input + "Vertical";
 		pc.inputHorizontal = input + "Horizontal";
+		pc.Image = sprite;
 		OnTargetRevived?.Invoke(pc.rbBody.transform);
 	}
 
