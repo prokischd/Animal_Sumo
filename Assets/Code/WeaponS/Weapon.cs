@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+	public ObjectSpawner objSpawner;
 	public Rigidbody2D parentRb { get; set; }
 	public float weaponForce = 300; 
 	public float defaultTimer = 0.1f;
@@ -30,5 +31,16 @@ public class Weapon : MonoBehaviour
 	internal void RotateTowards(Transform enemyTransform)
 	{
 		Quaternion.RotateTowards(this.transform.rotation, enemyTransform.rotation, 10.0f);
+	}
+
+	internal void Possess(WeaponSlot slot)
+	{
+		transform.parent = slot.go.transform;
+		transform.localPosition = Vector3.zero;
+		transform.rotation = slot.go.transform.rotation;
+		parentRb = slot.go.GetComponent<Rigidbody2D>();
+		slot.weapon = this;
+		slot.taken = true;
+		objSpawner.StartSpawning();
 	}
 }
