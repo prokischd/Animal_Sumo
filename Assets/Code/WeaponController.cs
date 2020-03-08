@@ -10,9 +10,11 @@ public class WeaponController : MonoBehaviour
 	private List<WeaponSlot> weaponSpots = new List<WeaponSlot>();
 	private PlayerConroller pc;
 	private CircleCollider2D bodyCollider;
+	private AudioSource source;
 
 	private void Start()
 	{
+		source = GameObject.Find("AudioMan").GetComponent<AudioSource>();
 		var child1 = gameObject.transform.Find("Arm_R").GetChild(3).gameObject;
 		var child2 = gameObject.transform.Find("Arm_L").GetChild(3).gameObject;
 		publicSpots.Add(child1);
@@ -34,7 +36,7 @@ public class WeaponController : MonoBehaviour
 			var slot = GetFreeWeaponSlot();
 			if(slot != null && weapon.parentRb == null)
 			{
-				AudioSource.PlayClipAtPoint(weapon.equip, Camera.main.transform.position);
+				source.Play();
 				weapon.Possess(slot);
 			}			
 		}

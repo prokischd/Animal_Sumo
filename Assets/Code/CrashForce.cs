@@ -41,6 +41,7 @@ public class CrashForce : MonoBehaviour
 					var rb = cf.gameObject.GetComponent<Rigidbody2D>();
 					wc.UseWeapon(cf.GetComponentInParent<PlayerConroller>());
 					rb.AddExplosionForce(playerController.GetExplosionForce(), mode: ForceMode2D.Impulse, explosionPosition: hit);
+					playerController.rbBody.velocity = Vector3.zero;
 				}
 			}
 			var go = Instantiate(explosion, hit, Quaternion.identity);
