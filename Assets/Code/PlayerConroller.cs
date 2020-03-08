@@ -59,6 +59,7 @@ public class PlayerConroller : MonoBehaviour
 	}
 
 	public GameObject HealthObject { get; set; }
+	public Sprite Image { get; set; }
 
 	private void Awake()
 	{
@@ -109,7 +110,7 @@ public class PlayerConroller : MonoBehaviour
 		inputBlocked--;
 	}
 
-	private IEnumerable<PlayerConroller> Yield()
+	public IEnumerable<PlayerConroller> Yield()
 	{
 		yield return this;
 	}

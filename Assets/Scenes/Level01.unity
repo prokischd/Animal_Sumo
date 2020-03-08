@@ -6115,7 +6115,7 @@ GameObject:
   - component: {fileID: 774018643}
   - component: {fileID: 774018642}
   m_Layer: 5
-  m_Name: Image
+  m_Name: PWIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10067,7 +10067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1581445410
 MonoBehaviour:
   m_ObjectHideFlags: 0
