@@ -19,7 +19,7 @@ public class PlayerConroller : MonoBehaviour
 	public float verticalForce;
 	public float jumpForceMultiplier = 1.0f; 
 
-	private float maxVelocity = 100;
+	private float maxVelocity = 60;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
@@ -41,7 +41,7 @@ public class PlayerConroller : MonoBehaviour
 
 	public float deathPosition = -40;
 	private CharacterSpawner cSpawner;
-	private int HP { get; set; }
+	public int HP { get; private set; }
 	public bool CanGrow { get; set; } = true;
 
 	List<Image> hps = new List<Image>();
@@ -113,7 +113,17 @@ public class PlayerConroller : MonoBehaviour
 
 	public bool alive = true;
 	void Update()
-    {		
+    {
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			var selector = FindObjectOfType<CharacterSelector>();
+			Destroy(selector.gameObject);
+			SceneManager.LoadScene(0);
+		}
+		if(HP <= 0)
+		{
+			return;
+		}
 		if(inputBlocked == 0)
 		{
 			HandleMovement();
@@ -123,21 +133,14 @@ public class PlayerConroller : MonoBehaviour
 		{
 			HandleDeath();
 		}
-
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			var selector = FindObjectOfType<CharacterSelector>();
-			Destroy(selector.gameObject);
-			SceneManager.LoadScene(0);
-		}
 	}
 
 	private void HandleDeath()
 	{
-		cSpawner.OnDeath?.Invoke(rbBody.transform);
 		hps[HP - 1].color = Color.black;
 		alive = false;
-		HP--;	
+		HP--;
+		cSpawner.OnDeath?.Invoke(rbBody.transform);
 	}
 
 	public float GetCurrentHorizontalForce()

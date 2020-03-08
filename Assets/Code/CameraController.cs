@@ -51,8 +51,15 @@ public class CameraController : MonoBehaviour
 	private void OnTargetDie(Transform target)
 	{
 		targets.Remove(target);
+		smoothTime = bigSmoothTime;
+		if(target.parent.GetComponent<PlayerConroller>() is PlayerConroller pc)
+		{
+			if(pc.HP <= 0)
+			{
+				return;
+			}
+		}
 		cSpawner.ResetTarget(target);
-		smoothTime = bigSmoothTime;		
 	}
 
 	private void LateUpdate()
@@ -78,6 +85,10 @@ public class CameraController : MonoBehaviour
 
 	private float GetGreatestDistance()
 	{
+		if(targets.Count == 0)
+		{
+			return mid.position.x;
+		}
 		var bounds = new Bounds(targets[0].position, Vector3.zero);
 		foreach(var t in targets)
 		{
