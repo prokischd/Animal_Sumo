@@ -9,6 +9,12 @@ public class Grower : Consumable
 	private float maxScale = 2.5f;
 	private float cooldown = 6.0f;
 	public AudioClip aclip;
+	private AudioSource source;
+
+	private void Start()
+	{
+		source = GetComponent<AudioSource>();
+	}
 	public override void Affect(PlayerConroller pc)
 	{
 		StartCoroutine(StartGrow(pc));
@@ -16,6 +22,7 @@ public class Grower : Consumable
 
 	private IEnumerator StartGrow(PlayerConroller pc)
 	{
+		source.Play();
 		pc.CanGrow = false;
 		AudioSource.PlayClipAtPoint(aclip, Camera.main.transform.position);
 		while(pc.GetBodyScale() < maxScale)
