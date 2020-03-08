@@ -98,6 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   offset: {x: 0, y: 0, z: -65}
-  minZoom: 40
+  minZoom: 50
   maxZoom: 10
   zoomLimiter: 50
