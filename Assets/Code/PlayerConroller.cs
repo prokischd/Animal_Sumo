@@ -39,7 +39,6 @@ public class PlayerConroller : MonoBehaviour
 	public bool crashing;
 	private float explosionForce = 220;
 
-	public float deathPosition = -40;
 	private CharacterSpawner cSpawner;
 	public int HP { get; private set; }
 	public bool CanGrow { get; set; } = true;
@@ -129,10 +128,19 @@ public class PlayerConroller : MonoBehaviour
 			HandleMovement();
 			HandleRayCast();
 		}		
-		if(rbBody.transform.position.y < deathPosition && alive)
+		if(ShouldDie())
 		{
 			HandleDeath();
 		}
+	}
+
+	private bool ShouldDie()
+	{
+		bool isBelowY = rbBody.transform.position.y < -30;
+		bool isBelowZ = rbBody.transform.position.x < -65;
+		bool isAboveZ = rbBody.transform.position.x > 50;
+		bool shouldDie = isBelowY || isBelowZ || isAboveZ;
+		return shouldDie && alive;
 	}
 
 	private void HandleDeath()
@@ -235,7 +243,7 @@ public class PlayerConroller : MonoBehaviour
 			currentHorizontalForce *= 2;
 		}
 		float verticalMultiplier = 1.0f;
-		if(!isGrounded)
+		if(!isGrounded && crashing)
 		{
 			verticalMultiplier /= 2;
 			multiplier /= 4;
