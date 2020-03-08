@@ -4873,6 +4873,6 @@ MonoBehaviour:
     m_Bits: 1792
   explosion: {fileID: 8464052093493054767, guid: d84c83763be934155b28e379ed827b8e,
     type: 3}
-  explosionForce: 5000
-  explosionRadious: 10
+  explosionForce: 10000
+  explosionRadious: 10000
   deathTimer: 5
