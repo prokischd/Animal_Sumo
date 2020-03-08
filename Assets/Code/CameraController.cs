@@ -88,7 +88,7 @@ public class CameraController : MonoBehaviour
 		}
 		Move();
 
-		if(smoothTime > 0.01f)
+		if(smoothTime > 0.02f)
 		{
 			smoothTime -= Time.deltaTime;
 		}
