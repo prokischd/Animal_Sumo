@@ -2951,8 +2951,6 @@ MonoBehaviour:
     m_Bits: 1792
   explosion: {fileID: 8786345793763259263, guid: e0ae448829e6b8c489fc910c936449dc,
     type: 3}
-  explosionForce: 5000
-  explosionRadious: 10
 --- !u!82 &5085599270386982150
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4643,7 +4641,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 9115425532121386601, guid: e1166ab27ed344858a74c9926fc3c2a1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4725,7 +4723,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 9115425532121386601, guid: e1166ab27ed344858a74c9926fc3c2a1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4807,7 +4805,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 9115425532121386601, guid: e1166ab27ed344858a74c9926fc3c2a1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4889,7 +4887,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 9115425532121386601, guid: e1166ab27ed344858a74c9926fc3c2a1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
