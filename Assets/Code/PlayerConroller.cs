@@ -17,7 +17,7 @@ public class PlayerConroller : MonoBehaviour
 	public float verticalForce;
 	public float jumpForceMultiplier = 1.0f; 
 
-	private float maxVelocity = 10;
+	private float maxVelocity = 100;
 	public float impulseMultiplier = 5.0f;
 	public float currentHorizontalForce;
 	public float currentVerticalForce;
@@ -35,7 +35,7 @@ public class PlayerConroller : MonoBehaviour
 
 	public bool isGrounded = true;
 	public bool crashing;
-	private float explosionForce = 50;
+	private float explosionForce = 220;
 
 	public float deathPosition = -40;
 	private CharacterSpawner cSpawner;
@@ -201,7 +201,13 @@ public class PlayerConroller : MonoBehaviour
 		{
 			currentHorizontalForce *= 2;
 		}
+		float verticalMultiplier = 1.0f;
+		if(!isGrounded)
+		{
+			verticalMultiplier /= 2;
+			multiplier /= 4;
+		}
 		rb.AddForce(currentHorizontalForce * multiplier * Vector3.right, ForceMode2D.Force);
-		rb.AddForce(currentVerticalForce * Vector3.up, mode);
+		rb.AddForce(currentVerticalForce * verticalMultiplier * Vector3.up, mode);
 	}
 }

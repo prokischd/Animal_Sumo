@@ -11,8 +11,7 @@ public class CrashForce :MonoBehaviour
 	public LayerMask colMask;
 	private LayerMask colMask2;
 	public GameObject explosion;
-	public float explosionForce = 5000;
-	public float explosionRadious = 25;
+	private float explosionRadious = 3f;
 	private bool canCrash = true;
 
 	void Start()
@@ -29,7 +28,7 @@ public class CrashForce :MonoBehaviour
 		{
 			GetComponent<AudioSource>().Play();
 			playerController.crashing = false;
-			pushCol = Physics2D.OverlapCircleAll(hit, explosionRadious, colMask);
+			pushCol = Physics2D.OverlapCircleAll(hit, explosionRadious * playerController.rbBody.transform.localScale.x, colMask);
 			foreach(var collidedWith in pushCol)
 			{
 				var cf = collidedWith.GetComponent<CrashForce>();
@@ -41,8 +40,8 @@ public class CrashForce :MonoBehaviour
 					rb.AddExplosionForce(playerController.GetExplosionForce(), mode: ForceMode2D.Impulse, explosionPosition: hit);
 				}
 			}
-			var go = Instantiate(explosion, hit, Quaternion.identity);
-			go.GetComponent<ProjectileScript>().IgnoreLayer = playerController.gameObject.layer;
+			//var go = Instantiate(explosion, hit, Quaternion.identity);
+			//go.GetComponent<ProjectileScript>().IgnoreLayer = playerController.gameObject.layer;
 			canCrash = false;
 			StartCoroutine(ResetCrashTimer(1.0f));
 		}
