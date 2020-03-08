@@ -70,7 +70,7 @@ public class CharacterSelector : MonoBehaviour
 				Configure(hor2, rightImage, ref rightIdx);
 			}
 
-			if(Input.GetKeyDown(KeyCode.H) && !isLoading)
+			if(Input.GetKeyDown(KeyCode.Space) && !isLoading)
 			{
 				StartCoroutine(StartGame());
 			}
