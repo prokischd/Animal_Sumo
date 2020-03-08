@@ -8,6 +8,7 @@ public class Grower : Consumable
 	private float growMultiplier = 1.02f;
 	private float maxScale = 2.5f;
 	private float cooldown = 6.0f;
+	public AudioClip aclip;
 	public override void Affect(PlayerConroller pc)
 	{
 		StartCoroutine(StartGrow(pc));
@@ -15,8 +16,8 @@ public class Grower : Consumable
 
 	private IEnumerator StartGrow(PlayerConroller pc)
 	{
-		canAffect = false;
-		GetComponent<AudioSource>().Play();
+		pc.CanGrow = false;
+		AudioSource.PlayClipAtPoint(aclip, Camera.main.transform.position);
 		while(pc.GetBodyScale() < maxScale)
 		{
 			pc.MultiplyScale(growMultiplier);
@@ -34,6 +35,6 @@ public class Grower : Consumable
 			pc.MultiplyRayLine(1 / growMultiplier);
 			yield return null;
 		}
-		canAffect = true;
+		pc.CanGrow = true;
 	}
 }

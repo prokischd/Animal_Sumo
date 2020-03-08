@@ -44,7 +44,7 @@ public class WeaponController : MonoBehaviour
 		}
 		else if(collision.gameObject.GetComponent<Consumable>() is Consumable consumable)
 		{
-			if(consumable.CanAffect())
+			if(consumable.CanAffect() && pc.CanGrow)
 			{
 				consumable.Affect(pc);
 			}

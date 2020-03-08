@@ -40,6 +40,7 @@ public class PlayerConroller : MonoBehaviour
 	public float deathPosition = -40;
 	private CharacterSpawner cSpawner;
 	public int HP { get; set; } = 5;
+	public bool CanGrow { get; set; } = true;
 
 	private void Awake()
 	{
