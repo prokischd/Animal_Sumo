@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Grower : Consumable
 {
-	public float growMultiplier = 1.03f;
-	public float maxScale = 2.2f;
-	public float cooldown = 6.0f;
+	private float growMultiplier = 1.02f;
+	private float maxScale = 2.5f;
+	private float cooldown = 6.0f;
 	public override void Affect(PlayerConroller pc)
 	{
 		StartCoroutine(StartGrow(pc));
@@ -15,6 +15,8 @@ public class Grower : Consumable
 
 	private IEnumerator StartGrow(PlayerConroller pc)
 	{
+		canAffect = false;
+		GetComponent<AudioSource>().Play();
 		while(pc.GetBodyScale() < maxScale)
 		{
 			pc.MultiplyScale(growMultiplier);

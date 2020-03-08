@@ -27,7 +27,7 @@ public class CrashForce :MonoBehaviour
 	{
 		if(playerController.crashing && canCrash)
 		{
-
+			GetComponent<AudioSource>().Play();
 			playerController.crashing = false;
 			pushCol = Physics2D.OverlapCircleAll(hit, explosionRadious, colMask);
 			foreach(var collidedWith in pushCol)

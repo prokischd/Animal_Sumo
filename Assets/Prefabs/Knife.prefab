@@ -127,6 +127,8 @@ MonoBehaviour:
   weaponForce: 300
   defaultTimer: 0.1
   distance: 4
+  equip: {fileID: 8300000, guid: a563d673ab28d024ab79b82b2a7a3433, type: 3}
+  audioClip: {fileID: 8300000, guid: 8d07ee63014095c4591c20369649597a, type: 3}
 --- !u!50 &7388772947610085964
 Rigidbody2D:
   serializedVersion: 4

@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
 	public float distance = 4;
 	protected float timer;
 	protected System.Random rng;
-
+	public AudioClip equip;
 	void Start()
 	{
 		timer = defaultTimer;

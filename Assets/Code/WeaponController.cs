@@ -33,6 +33,7 @@ public class WeaponController : MonoBehaviour
 			var slot = GetFreeWeaponSlot();
 			if(slot != null && weapon.parentRb == null)
 			{
+				AudioSource.PlayClipAtPoint(weapon.equip, Camera.main.transform.position);
 				weapon.transform.parent = slot.go.transform;
 				weapon.transform.localPosition = Vector3.zero;
 				weapon.transform.rotation = slot.go.transform.rotation;

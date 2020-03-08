@@ -6,6 +6,7 @@ public class WeaponKnife : Weapon
 {
 	private Rigidbody2D rb;
 	private BoxCollider2D col;
+	public AudioClip audioClip;
 	void Start()
 	{
 		col = GetComponent<BoxCollider2D>();
@@ -26,6 +27,7 @@ public class WeaponKnife : Weapon
 	}
 	public override void Execute(float v, PlayerConroller target)
 	{
+		AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position);
 		target.LoseInput(1.5f);
 		Destroy(this.gameObject);
 	}
